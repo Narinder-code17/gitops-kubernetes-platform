@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: gitops-platform
-          image: narinder15/gitops-kubernetes-platform:v1.0.0
+          image: narinder15/gitops-kubernetes-platform:v1.1.0
           imagePullPolicy: Always
 
           ports:
