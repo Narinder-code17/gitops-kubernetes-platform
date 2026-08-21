@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-kubernetes-platform
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Narinder-code17/gitops-kubernetes-platform.git
+    targetRevision: main
+    path: k8s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitops-platform
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
